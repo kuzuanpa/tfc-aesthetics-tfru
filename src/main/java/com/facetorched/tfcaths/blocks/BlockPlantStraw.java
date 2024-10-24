@@ -1,14 +1,9 @@
 package com.facetorched.tfcaths.blocks;
 
-import java.util.ArrayList;
-import java.util.Random;
-
-import com.dunk.tfc.ItemSetup;
-import com.dunk.tfc.Blocks.Vanilla.BlockCustomTallGrass;
-import com.dunk.tfc.api.TFCItems;
+import com.bioxx.tfc.Blocks.Vanilla.BlockCustomTallGrass;
+import com.bioxx.tfc.ItemSetup;
+import com.bioxx.tfc.api.TFCItems;
 import com.facetorched.tfcaths.util.AthsParser;
-
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -16,6 +11,9 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.oredict.OreDictionary;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class BlockPlantStraw extends BlockPlant implements IShearable{
 	public BlockPlantStraw() {
@@ -31,7 +29,7 @@ public class BlockPlantStraw extends BlockPlant implements IShearable{
 			return;
 		}
 		ItemStack is = player.inventory.getCurrentItem();
-		if (is != null && is.getItem() == TFCItems.stoneFlake){
+		if (is != null && is.getItem() == TFCItems.looseRock){
 			dropItemStacks(world, x, y, z, new ItemStack(ItemSetup.straw), 1, getMaxStraw(meta), new Random());
 			if (world.rand.nextInt(4) == 0){
 				is.stackSize--;

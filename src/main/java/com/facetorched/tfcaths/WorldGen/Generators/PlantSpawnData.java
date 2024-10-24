@@ -1,20 +1,19 @@
 package com.facetorched.tfcaths.WorldGen.Generators;
-import java.util.ArrayList;
-import java.util.NoSuchElementException;
 
-import com.dunk.tfc.WorldGen.TFCBiome;
-import com.dunk.tfc.api.Enums.EnumRegion;
-import com.dunk.tfc.api.Enums.EnumTree;
+import com.bioxx.tfc.WorldGen.TFCBiome;
+import com.bioxx.tfc.api.Enums.EnumTree;
 import com.facetorched.tfcaths.AthsGlobal;
 import com.facetorched.tfcaths.util.AthsLogger;
 import com.facetorched.tfcaths.util.AthsParser;
 import com.facetorched.tfcaths.util.BlockMetaPair;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.oredict.OreDictionary;
+
+import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 public class PlantSpawnData {
 	public Block block;
@@ -23,7 +22,6 @@ public class PlantSpawnData {
 	public ArrayList<String> canGrowOnOreDict = new ArrayList<String>();
 	public ArrayList<BlockMetaPair> canGrowOnBlockMeta = new ArrayList<BlockMetaPair>();
 	public ArrayList<TFCBiome> biomes = new ArrayList<TFCBiome>();
-	public ArrayList<EnumRegion> region = new ArrayList<EnumRegion>();
 	public int size, dispersion, rarity, minAltitude, maxAltitude;
 	public float minTemp, maxTemp, minRainfall, maxRainfall, minEVT, maxEVT, forestGen;
 
@@ -41,7 +39,7 @@ public class PlantSpawnData {
 				this.canGrowOn.add(b);
 			}
 			else if (et != null) {
-				canGrowOnBlockMeta.addAll(AthsParser.getTrunkBlocks(et.woodMeta));
+				//TODO: TFC Compact: canGrowOnBlockMeta.addAll(AthsParser.getTrunkBlocks(et.woodMeta));
 			}
 			else if(canGrowOn[i].startsWith("ore:")) {
 				this.canGrowOnOreDict.add(canGrowOn[i].substring(4));
@@ -65,12 +63,12 @@ public class PlantSpawnData {
 			}
 		}
 		
-		for(int n = 0; n < region.length; n++) {
-			for(int r = 0; r < AthsGlobal.ALLOWED_REGIONS.length; r++) {
-				if(region[n].equals(AthsGlobal.ALLOWED_REGIONS[r]))
-					this.region.add(EnumRegion.values()[r]);
-			}
-		}
+		//for(int n = 0; n < region.length; n++) {
+		//	for(int r = 0; r < AthsGlobal.ALLOWED_REGIONS.length; r++) {
+		//		if(region[n].equals(AthsGlobal.ALLOWED_REGIONS[r]))
+		//			this.region.add(EnumRegion.values()[r]);
+		//	}
+		//}
 
 		this.size = size;
 		this.dispersion = dispersion;
@@ -86,9 +84,9 @@ public class PlantSpawnData {
 		this.forestGen = forestGen;
 	}
 	
-	public boolean canGrowConditions(BiomeGenBase biome, EnumRegion region, float bioTemp, float rain, float evt) {
-		return this.metas.length > 0 &&
-				this.biomes.contains(biome) && this.region.contains(region) &&
+	public boolean canGrowConditions(BiomeGenBase biome, float bioTemp, float rain, float evt) {
+		return this.metas.length > 0 && biome instanceof TFCBiome &&
+				this.biomes.contains(biome) &&
 				bioTemp >= minTemp && bioTemp <= maxTemp && 
 				rain >= minRainfall && rain <= maxRainfall && 
 				evt >= minEVT && evt <= maxEVT;

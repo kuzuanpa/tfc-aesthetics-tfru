@@ -1,22 +1,17 @@
 package com.facetorched.tfcaths.WorldGen.Generators;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-
-import com.dunk.tfc.Blocks.Terrain.BlockStone;
+import com.bioxx.tfc.Blocks.Terrain.BlockStone;
 import com.facetorched.tfcaths.AthsGlobal;
 import com.facetorched.tfcaths.util.AthsMath;
 import com.facetorched.tfcaths.util.AthsParser;
 import com.facetorched.tfcaths.util.Point3D;
-
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.*;
 
 public class AthsWorldGenCrystals implements IWorldGenerator{
 	

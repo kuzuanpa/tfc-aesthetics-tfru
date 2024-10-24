@@ -1,18 +1,17 @@
 package com.facetorched.tfcaths.items.itemblocks;
 
-import java.util.List;
-
-import com.dunk.tfc.Core.TFC_Core;
-import com.dunk.tfc.Items.ItemBlocks.ItemTerraBlock;
-import com.dunk.tfc.api.Enums.EnumWeight;
+import com.bioxx.tfc.Core.TFC_Core;
+import com.bioxx.tfc.Items.ItemBlocks.ItemTerraBlock;
+import com.bioxx.tfc.api.Enums.EnumWeight;
 import com.facetorched.tfcaths.blocks.BlockCrystal;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+
+import java.util.List;
 
 public class ItemCrystal extends ItemTerraBlock{
 

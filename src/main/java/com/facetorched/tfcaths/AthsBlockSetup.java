@@ -1,42 +1,14 @@
 package com.facetorched.tfcaths;
 
-import com.dunk.tfc.ItemSetup;
-import com.dunk.tfc.Blocks.Vanilla.BlockCustomFlowerPot;
-import com.dunk.tfc.Core.TFC_Time;
-import com.dunk.tfc.api.TFCBlocks;
-import com.dunk.tfc.api.Constant.Global;
-import com.dunk.tfc.api.Enums.EnumTree;
-import com.facetorched.teloaddon.TeloItemSetup;
-import com.facetorched.tfcaths.blocks.BlockCrystal;
-import com.facetorched.tfcaths.blocks.BlockCrystalCluster;
-import com.facetorched.tfcaths.blocks.BlockPlant;
-import com.facetorched.tfcaths.blocks.BlockPlant3d;
-import com.facetorched.tfcaths.blocks.BlockPlant3dFlower;
-import com.facetorched.tfcaths.blocks.BlockPlantAlgae;
-import com.facetorched.tfcaths.blocks.BlockPlantCactus;
-import com.facetorched.tfcaths.blocks.BlockPlantEpiphyte3d;
-import com.facetorched.tfcaths.blocks.BlockPlantEpiphyte3dFlower;
-import com.facetorched.tfcaths.blocks.BlockPlantEpiphyte3dFungus;
-import com.facetorched.tfcaths.blocks.BlockPlantFlower;
-import com.facetorched.tfcaths.blocks.BlockPlantFungus;
-import com.facetorched.tfcaths.blocks.BlockPlantLayerFlower;
-import com.facetorched.tfcaths.blocks.BlockPlantLilyPad;
-import com.facetorched.tfcaths.blocks.BlockPlantLilyPad3d;
-import com.facetorched.tfcaths.blocks.BlockPlantLilyPad3dFlower;
-import com.facetorched.tfcaths.blocks.BlockPlantLow;
-import com.facetorched.tfcaths.blocks.BlockPlantLowFlower;
-import com.facetorched.tfcaths.blocks.BlockPlantStraw;
-import com.facetorched.tfcaths.blocks.BlockPlantTree;
-import com.facetorched.tfcaths.blocks.BlockPlantTree3d;
-import com.facetorched.tfcaths.blocks.BlockPlantTree3dFlower;
-import com.facetorched.tfcaths.blocks.BlockPlantTreeFlower;
-import com.facetorched.tfcaths.blocks.BlockPlantTreeTrimmable;
-import com.facetorched.tfcaths.blocks.BlockPlantTreeTrimmableFlower;
+import com.bioxx.tfc.Blocks.Vanilla.BlockCustomFlowerPot;
+import com.bioxx.tfc.Core.TFC_Time;
+import com.bioxx.tfc.ItemSetup;
+import com.bioxx.tfc.api.Enums.EnumTree;
+import com.bioxx.tfc.api.TFCBlocks;
+import com.facetorched.tfcaths.blocks.*;
 import com.facetorched.tfcaths.enums.EnumVary;
 import com.facetorched.tfcaths.items.itemblocks.ItemCrystal;
 import com.facetorched.tfcaths.util.AthsParser;
-
-import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -544,14 +516,14 @@ public class AthsBlockSetup {
 		tourmaline = crystalRegistryHelper(new BlockCrystal().setItemCommon(ItemSetup.gemTourmaline), AthsGlobal.TOURMALINE);
 		tourmalineCluster = crystalClusterRegistryHelper(tourmaline);
 		
-		if (Loader.isModLoaded("teloaddon") && com.facetorched.teloaddon.util.Config.addFluorite) {
-			fluorite = crystalRegistryHelper(new BlockCrystal().setItemCommon(TeloItemSetup.fluorite), AthsGlobal.FLUORITE);
-			fluoriteCluster = crystalClusterRegistryHelper(fluorite);
-		}
+		//if (Loader.isModLoaded("teloaddon") && com.facetorched.teloaddon.util.Config.addFluorite) {
+		//	fluorite = crystalRegistryHelper(new BlockCrystal().setItemCommon(TeloItemSetup.fluorite), AthsGlobal.FLUORITE);
+		//	fluoriteCluster = crystalClusterRegistryHelper(fluorite);
+		//}
 		
 		//non "Gems"
 		gypsum = crystalRegistryHelper(new BlockCrystal().setItem(ItemSetup.powder, 11), AthsGlobal.GYPSUM);
-		gypsumCluster = crystalRegistryHelper(new BlockCrystalCluster().setItem(ItemSetup.oreChunk, Global.oreSize + 1), AthsGlobal.GYPSUM);
+		gypsumCluster = crystalRegistryHelper(new BlockCrystalCluster().setItem(ItemSetup.oreChunk, /*Global.oreSize + */1), AthsGlobal.GYPSUM);
 		rockCrystal = crystalRegistryHelper(new BlockCrystal().setItem(ItemSetup.looseRock, 15), AthsGlobal.ROCK_CRYSTAL);
 		rockCrystalCluster = crystalRegistryHelper(new BlockCrystalCluster().setItem(ItemSetup.looseRock, 15), AthsGlobal.ROCK_CRYSTAL);
 		
@@ -773,7 +745,7 @@ public class AthsBlockSetup {
 		youngAspen = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.ASPEN).setName(AthsGlobal.YOUNG_ASPEN).addVarys(new EnumVary[] {EnumVary.AUTUMN, EnumVary.WINTER, EnumVary.SNOW}));
 		youngBirch = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.BIRCH).setName(AthsGlobal.YOUNG_BIRCH).addVarys(new EnumVary[] {EnumVary.AUTUMN, EnumVary.WINTER, EnumVary.SNOW}));
 		youngChestnut = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.CHESTNUT).setName(AthsGlobal.YOUNG_CHESTNUT).addVarys(new EnumVary[] {EnumVary.AUTUMN, EnumVary.WINTER, EnumVary.SNOW}));
-		youngGinko = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.GINGKO).setName(AthsGlobal.YOUNG_GINGKO).addVarys(new EnumVary[] {EnumVary.AUTUMN, EnumVary.WINTER, EnumVary.SNOW}));
+		//youngGinko = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.GINGKO).setName(AthsGlobal.YOUNG_GINGKO).addVarys(new EnumVary[] {EnumVary.AUTUMN, EnumVary.WINTER, EnumVary.SNOW}));
 		youngHickory = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.HICKORY).setName(AthsGlobal.YOUNG_HICKORY).addVarys(new EnumVary[] {EnumVary.AUTUMN, EnumVary.WINTER, EnumVary.SNOW}));
 		youngMaple = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.MAPLE).setName(AthsGlobal.YOUNG_MAPLE).addVarys(new EnumVary[] {EnumVary.AUTUMN, EnumVary.WINTER, EnumVary.SNOW}));
 		youngOak = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.OAK).setName(AthsGlobal.YOUNG_OAK).addVarys(new EnumVary[] {EnumVary.AUTUMN, EnumVary.WINTER, EnumVary.SNOW}));
@@ -786,24 +758,24 @@ public class AthsBlockSetup {
 		youngPine = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.PINE).setName(AthsGlobal.YOUNG_PINE).addVary(EnumVary.SNOW));
 		youngSequoia = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.REDWOOD).setName(AthsGlobal.YOUNG_SEQUOIA).addVary(EnumVary.SNOW));
 		youngSpruce = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.SPRUCE).setName(AthsGlobal.YOUNG_SPRUCE).addVary(EnumVary.SNOW));
-		youngYew = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.YEW).setName(AthsGlobal.YOUNG_YEW).addVary(EnumVary.SNOW));
+		//youngYew = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.YEW).setName(AthsGlobal.YOUNG_YEW).addVary(EnumVary.SNOW));
 		
 		// trees
 		youngAcacia = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.UTACACIA).setNames(AthsGlobal.YOUNG_ACACIA, new String[] {"Utacacia", "Koa"}));
-		youngBaobab = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.BAOBAB).setName(AthsGlobal.YOUNG_BAOBAB));
-		youngEbony = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.EBONY).setName(AthsGlobal.YOUNG_EBONY));
-		youngFever = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.FEVERTREE).setName(AthsGlobal.YOUNG_FEVER));
-		youngGhaf = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.GHAF).setName(AthsGlobal.YOUNG_GHAF));
+		//youngBaobab = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.BAOBAB).setName(AthsGlobal.YOUNG_BAOBAB));
+		//youngEbony = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.EBONY).setName(AthsGlobal.YOUNG_EBONY));
+		//youngFever = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.FEVERTREE).setName(AthsGlobal.YOUNG_FEVER));
+		//youngGhaf = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.GHAF).setName(AthsGlobal.YOUNG_GHAF));
 		youngKapok = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.KAPOK).setName(AthsGlobal.YOUNG_KAPOK));
-		youngLaurel = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.LAUREL).setName(AthsGlobal.YOUNG_LAUREL));
-		youngLimba = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.LIMBA).setName(AthsGlobal.YOUNG_LIMBA));
-		youngMahoe = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.MAHOE).setName(AthsGlobal.YOUNG_MAHOE));
-		youngMahogany = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.MAHOGANY).setName(AthsGlobal.YOUNG_MAHOGANY));
-		youngTeak = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.TEAK).setName(AthsGlobal.YOUNG_TEAK));
-		youngMangrove = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.MANGROVE).setName(AthsGlobal.YOUNG_MANGROVE).setExtraNames(AthsGlobal.YOUNG_MANGROVE, "Knee","Small_Knee").setIsWaterPlant());
+		//youngLaurel = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.LAUREL).setName(AthsGlobal.YOUNG_LAUREL));
+		//youngLimba = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.LIMBA).setName(AthsGlobal.YOUNG_LIMBA));
+		//youngMahoe = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.MAHOE).setName(AthsGlobal.YOUNG_MAHOE));
+		//youngMahogany = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.MAHOGANY).setName(AthsGlobal.YOUNG_MAHOGANY));
+		//youngTeak = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.TEAK).setName(AthsGlobal.YOUNG_TEAK));
+		//youngMangrove = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.MANGROVE).setName(AthsGlobal.YOUNG_MANGROVE).setExtraNames(AthsGlobal.YOUNG_MANGROVE, "Knee","Small_Knee").setIsWaterPlant());
 		
 		// tree 3d
-		youngPalm = plantRegistryHelper(new BlockPlantTree3d().setSapling(EnumTree.PALM).setName(AthsGlobal.YOUNG_PALM).setPart("Trunk").setPart("Frond").setScale(5f));
+		//youngPalm = plantRegistryHelper(new BlockPlantTree3d().setSapling(EnumTree.PALM).setName(AthsGlobal.YOUNG_PALM).setPart("Trunk").setPart("Frond").setScale(5f));
 		
 		//trimmable
 		youngWhiteCedar = plantRegistryHelper(new BlockPlantTreeTrimmable().setSapling(EnumTree.WHITECEDAR).setExtraNames(AthsGlobal.YOUNG_WHITE_CEDAR).addVary(EnumVary.SNOW));
@@ -964,7 +936,7 @@ public class AthsBlockSetup {
 		whiskFern = plantRegistryHelper(new BlockPlantEpiphyte3d().setName(AthsGlobal.WHISK_FERN).setPart("Frond").setScale(1.7f));
 		blueOilFern = plantRegistryHelper(new BlockPlantEpiphyte3d().setName(AthsGlobal.BLUE_OIL_FERN).setPart("Frond").setScale(1.6f));
 		azollaFern = plantRegistryHelper(new BlockPlantLilyPad().setName(AthsGlobal.AZOLLA_FERN).addVary(EnumVary.SNOW));
-		dwarfBamboo = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.BAMBOO).setName(AthsGlobal.DWARF_BAMBOO));
+		//dwarfBamboo = plantRegistryHelper(new BlockPlantTree().setSapling(EnumTree.BAMBOO).setName(AthsGlobal.DWARF_BAMBOO));
 		waterSpangles = plantRegistryHelper(new BlockPlantLilyPad().setName(AthsGlobal.WATER_SPANGLES));
 		moonwort = plantRegistryHelper(new BlockPlantFlower().setName(AthsGlobal.MOONWORT).addVarys(new EnumVary[] {EnumVary.FLOWER, EnumVary.SNOW, EnumVary.WINTER}).setFlowerMonthRange(TFC_Time.APRIL, TFC_Time.AUGUST).setScale(1f));
 		lavenderLeafSundrops = plantRegistryHelper(new BlockPlantFlower().setName(AthsGlobal.LAVENDER_LEAF_SUNDROPS).addVarys(new EnumVary[] {EnumVary.FLOWER}).setFlowerMonthRange(TFC_Time.MAY, TFC_Time.JULY).setScale(1f));

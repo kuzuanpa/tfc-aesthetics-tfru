@@ -1,23 +1,22 @@
 package com.facetorched.tfcaths.render.blocks;
 
-import java.util.Random;
-
-import com.dunk.tfc.BlockSetup;
-import com.dunk.tfc.Blocks.Flora.BlockLeafLitter;
-import com.dunk.tfc.api.TFCBlocks;
+import com.bioxx.tfc.BlockSetup;
+import com.bioxx.tfc.api.TFCBlocks;
 import com.facetorched.tfcaths.blocks.BlockPlant;
 import com.facetorched.tfcaths.enums.EnumVary;
 import com.facetorched.tfcaths.util.AthsLogger;
 import com.facetorched.tfcaths.util.AthsRandom;
-
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockLeaves;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.Random;
 
 public abstract class AbstractRenderPlant implements ISimpleBlockRenderingHandler{
 	public abstract boolean renderPlantBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer, Tessellator tessellator, int rgb, int meta, float scale, IIcon icon, Random random);
@@ -38,9 +37,9 @@ public abstract class AbstractRenderPlant implements ISimpleBlockRenderingHandle
 	@SuppressWarnings("deprecation")
 	public void renderLeaves(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
 		Block left = world.getBlock(x - 1, y, z);
-        if (left instanceof BlockLeafLitter)
+        if (left instanceof BlockLeaves)
         {
-            RenderingRegistry.instance().renderWorldBlock(renderer, world, x, y, z, left, TFCBlocks.leafLitterRenderId);
+            RenderingRegistry.instance().renderWorldBlock(renderer, world, x, y, z, left, TFCBlocks.leavesFruitRenderId);
         }
 	}
 	

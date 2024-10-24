@@ -17,12 +17,12 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = AthsMod.MODID, version = AthsMod.VERSION, name = AthsMod.NAME, dependencies = "required-after:terrafirmacraftplus;after:teloaddon")
+@Mod(modid = AthsMod.MODID, version = AthsMod.VERSION, name = AthsMod.NAME, dependencies = "required-after:terrafirmacraft;after:teloaddon")
 public class AthsMod
 {
     public static final String MODID = "tfcaths";
     public static final String VERSION = "1.7.0"; // change in build.gradle as well
-    public static final String NAME = "TFC+ Aesthetics";
+    public static final String NAME = "TFC Aesthetics";
     
     @SidedProxy(
     	      clientSide="com.facetorched.tfcaths.proxy.ClientProxy", 
@@ -68,7 +68,6 @@ public class AthsMod
 	@SubscribeEvent
 	public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent eventArgs)
 	{
-		if (eventArgs.modID.equalsIgnoreCase(MODID));
-			Config.reload();
+		if (eventArgs.modID.equalsIgnoreCase(MODID)) Config.reload();
 	}
 }

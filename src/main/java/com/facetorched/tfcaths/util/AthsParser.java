@@ -1,21 +1,20 @@
 package com.facetorched.tfcaths.util;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-
-import com.dunk.tfc.BlockSetup;
-import com.dunk.tfc.WorldGen.TFCBiome;
-import com.dunk.tfc.api.Enums.EnumTree;
+import com.bioxx.tfc.BlockSetup;
+import com.bioxx.tfc.WorldGen.TFCBiome;
+import com.bioxx.tfc.api.Enums.EnumTree;
 import com.facetorched.tfcaths.WorldGen.Generators.AthsWorldGenPlants;
 import com.facetorched.tfcaths.WorldGen.Generators.PlantSpawnData;
 import com.facetorched.tfcaths.blocks.BlockPlant;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.oredict.OreDictionary;
+
+import java.util.ArrayList;
+import java.util.HashSet;
 
 public class AthsParser {
 	public static Block getBlockFromName(String blockName) {
@@ -91,20 +90,13 @@ public class AthsParser {
 	
 	public static ArrayList<BlockMetaPair> getTrunkBlocks(int treeID){
 		ArrayList<BlockMetaPair> ret = new ArrayList<BlockMetaPair>();
-		if (treeID > 31) {
-			ret.add(new BlockMetaPair(BlockSetup.logNatural3, treeID % 16));
-			//ret.add(new BlockMetaPair(BlockSetup.woodVert3, treeID % 16)); // player placed
-			ret.add(new BlockMetaPair(BlockSetup.branch3__y_, treeID % 16));
-		}
-		else if (treeID > 15) {
+		if (treeID > 15) {
 			ret.add(new BlockMetaPair(BlockSetup.logNatural2, treeID % 16));
 			//ret.add(new BlockMetaPair(BlockSetup.woodVert2, treeID % 16)); // player placed
-			ret.add(new BlockMetaPair(BlockSetup.branch2__y_, treeID % 16));
 		}
 		else {
 			ret.add(new BlockMetaPair(BlockSetup.logNatural, treeID));
 			//ret.add(new BlockMetaPair(BlockSetup.woodVert, treeID)); // player placed
-			ret.add(new BlockMetaPair(BlockSetup.branch__y_, treeID));
 		}
 		return ret;
 	}

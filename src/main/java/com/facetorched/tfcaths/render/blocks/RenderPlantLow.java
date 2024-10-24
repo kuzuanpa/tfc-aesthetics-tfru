@@ -1,17 +1,16 @@
 package com.facetorched.tfcaths.render.blocks;
 
-import java.util.Random;
-
-import com.dunk.tfc.api.TFCBlocks;
+import com.bioxx.tfc.api.TFCBlocks;
 import com.facetorched.tfcaths.AthsBlockSetup;
 import com.facetorched.tfcaths.blocks.BlockPlantLow;
-
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
+
+import java.util.Random;
 
 public class RenderPlantLow extends AbstractRenderPlant{
 
@@ -22,7 +21,7 @@ public class RenderPlantLow extends AbstractRenderPlant{
 		if(!(block instanceof BlockPlantLow)) {
 			return false;
 		}
-		RenderingRegistry.instance().renderWorldBlock(renderer, world, x, y, z, TFCBlocks.leafLitter, TFCBlocks.leafLitterRenderId);
+		RenderingRegistry.instance().renderWorldBlock(renderer, world, x, y, z, TFCBlocks.fruitTreeLeaves, TFCBlocks.leavesFruitRenderId);
 		BlockPlantLow plantLow = (BlockPlantLow)block;
         tessellator.setColorOpaque_I(rgb); //need to call again because we rendered the leaves...
 		renderer.drawCrossedSquares(plantLow.sideIcons[meta], x, y, z, scale);

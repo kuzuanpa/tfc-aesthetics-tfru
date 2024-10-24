@@ -3,9 +3,9 @@ package com.facetorched.tfcaths.blocks;
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.dunk.tfc.Blocks.BlockTerra;
-import com.dunk.tfc.Core.TFCTabs;
-import com.dunk.tfc.api.TFCOptions;
+import com.bioxx.tfc.Blocks.BlockTerra;
+import com.bioxx.tfc.Core.TFCTabs;
+import com.bioxx.tfc.api.TFCOptions;
 import com.facetorched.tfcaths.AthsBlockSetup;
 import com.facetorched.tfcaths.AthsGlobal;
 import com.facetorched.tfcaths.AthsMod;
@@ -31,7 +31,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class BlockCrystal extends BlockTerra{
+public class BlockCrystal extends BlockTerra {
 	@SideOnly(Side.CLIENT)
 	protected IIcon[] icons;
 	

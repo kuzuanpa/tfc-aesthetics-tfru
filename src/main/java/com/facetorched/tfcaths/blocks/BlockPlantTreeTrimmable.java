@@ -1,6 +1,6 @@
 package com.facetorched.tfcaths.blocks;
 
-import com.dunk.tfc.Items.Tools.ItemShears;
+import com.bioxx.tfc.Items.Tools.ItemShears;
 import com.facetorched.tfcaths.AthsBlockSetup;
 import com.facetorched.tfcaths.util.AthsParser;
 

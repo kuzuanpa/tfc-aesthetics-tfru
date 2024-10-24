@@ -1,6 +1,6 @@
 package com.facetorched.tfcaths.blocks;
 
-import com.dunk.tfc.BlockSetup;
+import com.bioxx.tfc.BlockSetup;
 import com.facetorched.tfcaths.AthsBlockSetup;
 import com.facetorched.tfcaths.enums.EnumVary;
 import com.facetorched.tfcaths.interfaces.ILilyPad;

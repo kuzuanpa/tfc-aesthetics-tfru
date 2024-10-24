@@ -1,26 +1,14 @@
 package com.facetorched.tfcaths.WorldGen.Generators;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-
-import com.dunk.tfc.Core.TFC_Climate;
-import com.dunk.tfc.WorldGen.TFCBiome;
-import com.dunk.tfc.WorldGen.Generators.WorldGenForests;
-import com.dunk.tfc.api.TFCBlocks;
-import com.dunk.tfc.api.Enums.EnumRegion;
+import com.bioxx.tfc.Core.TFC_Climate;
+import com.bioxx.tfc.WorldGen.Generators.WorldGenForests;
+import com.bioxx.tfc.WorldGen.TFCBiome;
+import com.bioxx.tfc.api.TFCBlocks;
 import com.facetorched.tfcaths.AthsGlobal;
 import com.facetorched.tfcaths.blocks.BlockPlant;
 import com.facetorched.tfcaths.blocks.BlockPlantEpiphyte3d;
 import com.facetorched.tfcaths.enums.EnumVary;
-import com.facetorched.tfcaths.util.AthsLogger;
-import com.facetorched.tfcaths.util.AthsMath;
-import com.facetorched.tfcaths.util.BitMap;
-import com.facetorched.tfcaths.util.Config;
-import com.facetorched.tfcaths.util.Point3D;
-
+import com.facetorched.tfcaths.util.*;
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -29,6 +17,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
+
+import java.util.*;
 
 public class AthsWorldGenPlants implements IWorldGenerator {
 
@@ -59,7 +49,7 @@ public class AthsWorldGenPlants implements IWorldGenerator {
 				
 				int y = getTopSolidOrLiquidBlock(world, x, z);
 				//avgY += y;
-				if(world.getBlock(x, y - 1, z) == TFCBlocks.shrub && random.nextFloat() <= Config.cullShrubs) {
+				if(world.getBlock(x, y - 1, z) == TFCBlocks.berryBush && random.nextFloat() <= Config.cullShrubs) {
 					world.setBlock(x, y - 1, z, Blocks.air);
 				}
 				
@@ -101,7 +91,7 @@ public class AthsWorldGenPlants implements IWorldGenerator {
 		float evt = TFC_Climate.getCacheManager(world).getEVTLayerAt(centerX, centerZ).floatdata1;
 		float rain = TFC_Climate.getRainfall(world, centerX, centerY, centerZ);
 		float bioTemp = TFC_Climate.getBioTemperatureHeight(world, centerX, centerY, centerZ);
-		EnumRegion region = EnumRegion.values()[TFC_Climate.getRegionLayer(world, centerX, centerY, centerZ)];
+		//EnumRegion region = EnumRegion.values()[TFC_Climate.getRegionLayer(world, centerX, centerY, centerZ)];
 		BiomeGenBase biome = world.getBiomeGenForCoords(centerX, centerZ);
 
 		// iterate over all keys and find valid plants based on habitat conditions then
@@ -115,7 +105,7 @@ public class AthsWorldGenPlants implements IWorldGenerator {
 		for (String key : keys) {
 			PlantSpawnData data = plantList.get(key);
 			Block plant = data.block;
-			if (data.size > 0 && data.canGrowConditions(biome, region, bioTemp, rain, evt)) { // don't check altitude yet. there might be a cliff!
+			if (data.size > 0 && data.canGrowConditions(biome, bioTemp, rain, evt)) { // don't check altitude yet. there might be a cliff!
 				int rarity = data.rarity;
 				rarity *= Math.pow(getEnvironmentRarityScaling(world, centerX, centerY, centerZ, rain, evt),
 						data.forestGen); // ignores this effect if forestGen is 0
@@ -255,8 +245,7 @@ public class AthsWorldGenPlants implements IWorldGenerator {
 			rainfall = Math.max(rainfall * 2, 400);
 			// evt /= 2;
 		}
-		if (world.getBiomeGenForCoords(x, z) == TFCBiome.SWAMPLAND
-				|| world.getBiomeGenForCoords(x, z) == TFCBiome.SALTSWAMP) {
+		if (world.getBiomeGenForCoords(x, z) == TFCBiome.SWAMPLAND) {
 			rainfall *= 1.75f;
 		}
 		float numTreesCalc = (float) (30f * (rainfall / 2000f) * Math.sqrt((Math.min(Math.max(0.1f, evt), 1f))));

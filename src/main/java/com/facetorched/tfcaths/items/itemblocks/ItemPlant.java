@@ -1,14 +1,11 @@
 package com.facetorched.tfcaths.items.itemblocks;
 
-import java.util.List;
-
-import com.dunk.tfc.Core.ColorizerFoliageTFC;
-import com.dunk.tfc.Core.TFC_Core;
-import com.dunk.tfc.Items.ItemBlocks.ItemTerraBlock;
-import com.dunk.tfc.api.Enums.EnumWeight;
+import com.bioxx.tfc.Core.ColorizerFoliageTFC;
+import com.bioxx.tfc.Core.TFC_Core;
+import com.bioxx.tfc.Items.ItemBlocks.ItemTerraBlock;
+import com.bioxx.tfc.api.Enums.EnumWeight;
 import com.facetorched.tfcaths.blocks.BlockPlant;
 import com.facetorched.tfcaths.enums.EnumVary;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -19,7 +16,9 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.MovingObjectPosition.MovingObjectType;
 import net.minecraft.world.World;
 
-public class ItemPlant extends ItemTerraBlock{
+import java.util.List;
+
+public class ItemPlant extends ItemTerraBlock {
 	public ItemPlant(Block b)
 	{
 		super(b);

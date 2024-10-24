@@ -1,17 +1,16 @@
 package com.facetorched.tfcaths.blocks;
 
-import java.util.Random;
-
-import com.dunk.tfc.BlockSetup;
-import com.dunk.tfc.ItemSetup;
-import com.dunk.tfc.api.Enums.EnumTree;
+import com.bioxx.tfc.BlockSetup;
+import com.bioxx.tfc.ItemSetup;
+import com.bioxx.tfc.api.Enums.EnumTree;
 import com.facetorched.tfcaths.interfaces.ITree;
 import com.facetorched.tfcaths.util.AthsParser;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class BlockPlantTree3d extends BlockPlant3d implements ITree{
 	public ItemStack sapling;
@@ -36,15 +35,35 @@ public class BlockPlantTree3d extends BlockPlant3d implements ITree{
 	
 	public BlockPlantTree3d setSapling(EnumTree tree) {
 		// This is some serious hard coding >:(
-		int meta = tree.woodMeta;
-		if (meta < 16) {
-			setSapling(new ItemStack(BlockSetup.sapling, 0, meta));
+		//int meta = tree.woodMeta;
+		//if (meta < 16) {
+		//	setSapling(new ItemStack(BlockSetup.sapling, 0, meta));
+		//}
+		//else if(meta < 32) {
+		//	setSapling(new ItemStack(BlockSetup.sapling2, 0, meta % 16));
+		//}
+		//else
+		//	setSapling(new ItemStack(BlockSetup.sapling3, 0, meta % 32));
+		switch (tree){
+			case OAK: return setSapling(new ItemStack(BlockSetup.sapling, 0, 0));
+			case ASPEN:
+			case BIRCH:
+			case CHESTNUT:
+			case DOUGLASFIR:
+			case HICKORY:
+			case MAPLE:
+			case ASH:
+			case PINE:
+			case REDWOOD:
+			case SPRUCE:
+			case SYCAMORE:
+			case WHITECEDAR:
+			case WHITEELM:
+			case WILLOW:
+			case KAPOK:
+			case KOA:
+			case UTACACIA:
 		}
-		else if(meta < 32) {
-			setSapling(new ItemStack(BlockSetup.sapling2, 0, meta % 16));
-		}
-		else
-			setSapling(new ItemStack(BlockSetup.sapling3, 0, meta % 32));
 		return this;
 	}
 	
@@ -56,8 +75,8 @@ public class BlockPlantTree3d extends BlockPlant3d implements ITree{
 			Random random = new Random();
 			if (this.sapling != null)
 				dropItemStacks(world, x, y, z, this.sapling, 0, 3, random);
-			if(dropItemStacks(world, x, y, z, new ItemStack(ItemSetup.pole), 0, 2, random))
-				dropItemStacks(world, x, y, z, new ItemStack(ItemSetup.stick), 0, 3, random);
+			//if(dropItemStacks(world, x, y, z, new ItemStack(ItemSetup.pole), 0, 2, random))
+			//	dropItemStacks(world, x, y, z, new ItemStack(ItemSetup.stick), 0, 3, random);
 			else
 				dropItemStacks(world, x, y, z, new ItemStack(ItemSetup.stick), 2, 5, random);
 		}

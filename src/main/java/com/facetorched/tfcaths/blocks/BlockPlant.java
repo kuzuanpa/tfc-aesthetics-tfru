@@ -1,28 +1,23 @@
 package com.facetorched.tfcaths.blocks;
 
-import java.util.List;
-import java.util.Random;
-
-import com.dunk.tfc.ItemSetup;
-import com.dunk.tfc.TerraFirmaCraft;
-import com.dunk.tfc.Blocks.BlockTerra;
-import com.dunk.tfc.Core.TFCTabs;
-import com.dunk.tfc.Core.TFC_Climate;
-import com.dunk.tfc.Core.TFC_Core;
-import com.dunk.tfc.Core.TFC_Time;
-import com.dunk.tfc.Entities.Mobs.EntityWolfTFC;
-import com.dunk.tfc.Food.ItemFoodTFC;
-import com.dunk.tfc.api.Entities.IAnimal;
-import com.dunk.tfc.api.TFCItems;
+import com.bioxx.tfc.Blocks.BlockTerra;
+import com.bioxx.tfc.Core.TFCTabs;
+import com.bioxx.tfc.Core.TFC_Climate;
+import com.bioxx.tfc.Core.TFC_Core;
+import com.bioxx.tfc.Core.TFC_Time;
+import com.bioxx.tfc.Entities.Mobs.EntityWolfTFC;
+import com.bioxx.tfc.Food.ItemFoodTFC;
+import com.bioxx.tfc.ItemSetup;
+import com.bioxx.tfc.TerraFirmaCraft;
+import com.bioxx.tfc.api.Entities.IAnimal;
+import com.bioxx.tfc.api.TFCItems;
 import com.facetorched.tfcaths.AthsBlockSetup;
-import com.facetorched.tfcaths.AthsGlobal;
 import com.facetorched.tfcaths.AthsMod;
 import com.facetorched.tfcaths.WorldGen.Generators.AthsWorldGenPlants;
 import com.facetorched.tfcaths.WorldGen.Generators.PlantSpawnData;
 import com.facetorched.tfcaths.enums.EnumVary;
 import com.facetorched.tfcaths.items.itemblocks.ItemPlant;
 import com.facetorched.tfcaths.util.AthsParser;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -44,6 +39,9 @@ import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.List;
+import java.util.Random;
 
 public class BlockPlant extends BlockTerra{
 	public String[] plantNames;
@@ -669,7 +667,7 @@ public class BlockPlant extends BlockTerra{
 		if (isVary(meta, EnumVary.SNOW)) {
 			if (entity instanceof EntityPlayer){
 				ItemStack bootsI = ((EntityPlayer) entity).getCurrentArmor(0);
-				if (bootsI != null && (bootsI.getItem() == TFCItems.wolfFurBoots || bootsI.getItem() == TFCItems.bearFurBoots || bootsI.getItem() == TFCItems.furBoots)){
+				if (bootsI != null && (bootsI.getItem() == TFCItems.leatherBoots)){
 					return;
 				}
 			}
@@ -707,12 +705,12 @@ public class BlockPlant extends BlockTerra{
 		this.foodItemStack = ItemFoodTFC.createTag(new ItemStack(food, 1, 0), weight);
 		return this;
 	}	
-	
+	//TODO: TFC compact: set to mushroom Food
 	public BlockPlant setBrownMushroom(float weight) {
-		return setFoodItemStack(ItemSetup.mushroomFoodB, weight);
+		return setFoodItemStack(ItemSetup.egg, weight);
 	}
 
 	public BlockPlant setRedMushroom(float weight) {
-		return setFoodItemStack(ItemSetup.mushroomFoodR, weight);
+		return setFoodItemStack(ItemSetup.egg, weight);
 	}
 }

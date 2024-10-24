@@ -1,16 +1,15 @@
 package com.facetorched.tfcaths;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import com.dunk.tfc.BlockSetup;
-import com.dunk.tfc.api.TFCBlocks;
-import com.dunk.tfc.api.Constant.Global;
+import com.bioxx.tfc.BlockSetup;
+import com.bioxx.tfc.api.Constant.Global;
+import com.bioxx.tfc.api.TFCBlocks;
 import com.facetorched.tfcaths.util.AthsParser;
 import com.facetorched.tfcaths.util.BlockMetaPair;
 import com.facetorched.tfcaths.util.Point3D;
-
 import net.minecraft.block.Block;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class AthsGlobal {
 	public static final String AGATE = "Agate";
@@ -471,17 +470,13 @@ public class AthsGlobal {
 	
 	public static final ArrayList<BlockMetaPair> ALL_TREE_TRUNKS = new ArrayList<BlockMetaPair>(Arrays.asList(
 			new BlockMetaPair(BlockSetup.logNatural, -1),
-			new BlockMetaPair(BlockSetup.logNatural2, -1),
-			new BlockMetaPair(BlockSetup.logNatural3, -1), 
-			new BlockMetaPair(BlockSetup.branch__y_, -1), 
-			new BlockMetaPair(BlockSetup.branch2__y_, -1), 
-			new BlockMetaPair(BlockSetup.branch3__y_, -1)));
+			new BlockMetaPair(BlockSetup.logNatural2, -1)));
 	
 	// some large prime numbers
 	public static final int PRIME_1 = 83;
 	public static final int PRIME_2 = 139;
 	
-	public static final float TREE_SCALE = 4.0f;
+	public static final float TREE_SCALE = 1.5f;
 	public static final int TREE_BASE_RARITY = 1000;
 	
 	public static final float HALF_PI = (float) Math.PI / 2;

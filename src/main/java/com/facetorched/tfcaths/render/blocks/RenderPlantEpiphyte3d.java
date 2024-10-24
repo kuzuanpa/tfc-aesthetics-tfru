@@ -1,15 +1,11 @@
 package com.facetorched.tfcaths.render.blocks;
 
-import java.util.Random;
-
-import com.dunk.tfc.BlockSetup;
-import com.dunk.tfc.Blocks.Flora.BlockBranch;
+import com.bioxx.tfc.BlockSetup;
 import com.facetorched.tfcaths.AthsGlobal;
 import com.facetorched.tfcaths.WorldGen.Generators.AthsWorldGenPlants;
 import com.facetorched.tfcaths.WorldGen.Generators.PlantSpawnData;
 import com.facetorched.tfcaths.blocks.BlockPlant3d;
 import com.facetorched.tfcaths.util.Point3D;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.RenderHelper;
@@ -18,6 +14,8 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.client.model.obj.Vertex;
 import net.minecraftforge.client.model.obj.WavefrontObject;
+
+import java.util.Random;
 
 public class RenderPlantEpiphyte3d extends RenderPlant3d{
 	@Override
@@ -57,12 +55,12 @@ public class RenderPlantEpiphyte3d extends RenderPlant3d{
 			Block b = world.getBlock(p.x, p.y, p.z);
 			int m = world.getBlockMetadata(p.x, p.y, p.z);
 			if(data.canGrowOnBlock(b, m)) {
-				if (b == BlockSetup.branch2__y_ /*trunk*/ && (m == 1 /*palm*/ || m == 8 /*Bamboo*/)) {
+				if (b == BlockSetup.fruitTreeWood /*trunk*/ && (m == 1 /*palm*/ || m == 8 /*Bamboo*/)) {
 					inset = 0.9F;
 				}
-				else if(b instanceof BlockBranch) {
-					inset = 0.75F;
-				}
+				//else if(b instanceof BlockFruitWood && ((BlockFruitWood) b).) {
+				//	inset = 0.75F;
+				//}
 				break;
 			}
 			rotation += AthsGlobal.HALF_PI;
