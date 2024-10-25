@@ -62,7 +62,7 @@ public class Config {
 		
 		numCustomGenerators = config.getInt("numCustomGenerators", "_num_custom_generators", 1, 0, Integer.MAX_VALUE, "The number of custom plant generators to read from. The names of these generators are enumerated as \"_z[n]\"");
 		
-		cullShrubs = config.getFloat("cullShrubs", "_cull_shrubs", 0.0f, 0.0f, 1.0f, "The degree to which TFC+ shrubs should be culled from the world. Set to 0 to disable the culling.");
+		cullShrubs = config.getFloat("cullShrubs", "_cull_shrubs", 0.0f, 0.0f, 1.0f, "The degree to which TFC berryBush should be culled from the world. Set to 0 to disable the culling.");
 		/*
 		String[] cullSurfaceBlockNames = config.getStringList("_cull_surface_blocks", "cullSurfaceBlocks", new String[] {"terrafirmacraft:shrub"}, "blocks to be culled from the surface during world generation");
 		cullSurfaceBlocks = AthsParser.getBlockFromName(cullSurfaceBlockNames);
@@ -77,11 +77,11 @@ public class Config {
 		propagationRecipes = config.getBoolean("propagationRecipes", "_propagation_recipes", true, "Set to false to prevent plants from being growable in a barrel");
 		miscRecipes = config.getBoolean("miscRecipes", "_misc_recipes", true, "Set to false to prevent addition of various TFC+ styled plant-based recipes");
 		
-		rarityTree = config.getFloat("rarityTree", "_rarity_tree", 1f, 0f, 10000f, "The multiplier applied to tree-like plant rarity. Set to 0 to disable these from spawning entirely");
-		rarityLilyPad = config.getFloat("rarityLilyPad", "_rarity_lily_pad", 1f, 0f, 10000f, "The multiplier applied to lilypad-like plant rarity (including algae). Set to 0 to disable these from spawning entirely");
-		rarityEpiphyte = config.getFloat("rarityEpiphyte", "_rarity_epiphyte", 1f, 0f, 10000f, "The multiplier applied to epiphyte plant rarity. Set to 0 to disable these from spawning entirely");
-		rarityCactus = config.getFloat("rarityCactus", "_rarity_cactus", 1f, 0f, 10000f, "The multiplier applied to cactus rarity. Set to 0 to disable these from spawning entirely");
-		rarityOther = config.getFloat("rarityOther", "_rarity_other", 1f, 0f, 10000f, "The multiplier applied to non-categorized plants. Set to 0 to disable these from spawning entirely");
+		rarityTree = config.getFloat("rarityTree", "_rarity_tree", 4f, 0f, 10000f, "The multiplier applied to tree-like plant rarity. Set to 0 to disable these from spawning entirely");
+		rarityLilyPad = config.getFloat("rarityLilyPad", "_rarity_lily_pad", 10f, 0f, 10000f, "The multiplier applied to lilypad-like plant rarity (including algae). Set to 0 to disable these from spawning entirely");
+		rarityEpiphyte = config.getFloat("rarityEpiphyte", "_rarity_epiphyte", 10f, 0f, 10000f, "The multiplier applied to epiphyte plant rarity. Set to 0 to disable these from spawning entirely");
+		rarityCactus = config.getFloat("rarityCactus", "_rarity_cactus", 10f, 0f, 10000f, "The multiplier applied to cactus rarity. Set to 0 to disable these from spawning entirely");
+		rarityOther = config.getFloat("rarityOther", "_rarity_other", 10f, 0f, 10000f, "The multiplier applied to non-categorized plants. Set to 0 to disable these from spawning entirely");
 		
 		rockCrystalNetherQuartz = config.getBoolean("rockCrystalNetherQuartz", "_rock_crystal_nether_quartz", true, "Set to false to prevent rock crystal from dropping nether quartz. Will drop quartzite rocks only.");
 		if (rockCrystalNetherQuartz)

@@ -302,8 +302,7 @@ public class BlockPlant extends BlockTerra{
 
 	protected void checkAndDropBlock(World world, int x, int y, int z){
 		if (!world.isRemote && !this.canBlockStay(world, x, y, z)){
-			if (!this.hasNoDrops)
-				this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+			if (!this.hasNoDrops) this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
 			world.setBlock(x, y, z, Blocks.air, 0, 2);
 		}
 	}
