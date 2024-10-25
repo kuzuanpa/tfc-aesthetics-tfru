@@ -1,6 +1,5 @@
 package com.facetorched.tfcaths.blocks;
 
-import com.bioxx.tfc.BlockSetup;
 import com.bioxx.tfc.ItemSetup;
 import com.bioxx.tfc.api.Enums.EnumTree;
 import com.facetorched.tfcaths.interfaces.ITree;
@@ -11,6 +10,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import java.util.Random;
+
+import static com.facetorched.tfcaths.util.AthsParser.getSaplingItem;
 
 public class BlockPlantTree3d extends BlockPlant3d implements ITree{
 	public ItemStack sapling;
@@ -44,26 +45,7 @@ public class BlockPlantTree3d extends BlockPlant3d implements ITree{
 		//}
 		//else
 		//	setSapling(new ItemStack(BlockSetup.sapling3, 0, meta % 32));
-		switch (tree){
-			case OAK: return setSapling(new ItemStack(BlockSetup.sapling, 0, 0));
-			case ASPEN:
-			case BIRCH:
-			case CHESTNUT:
-			case DOUGLASFIR:
-			case HICKORY:
-			case MAPLE:
-			case ASH:
-			case PINE:
-			case REDWOOD:
-			case SPRUCE:
-			case SYCAMORE:
-			case WHITECEDAR:
-			case WHITEELM:
-			case WILLOW:
-			case KAPOK:
-			case KOA:
-			case UTACACIA:
-		}
+		if (getSaplingItem(tree)!=null)return setSapling(getSaplingItem(tree));
 		return this;
 	}
 	

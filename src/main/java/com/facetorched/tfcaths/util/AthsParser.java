@@ -13,6 +13,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.oredict.OreDictionary;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -208,5 +209,30 @@ public class AthsParser {
 			}
 		}
 		return result;
+	}
+
+	@Nullable
+	public static ItemStack getSaplingItem(EnumTree enumTree){
+		switch (enumTree){
+			case OAK:        return new ItemStack(BlockSetup.sapling,0,0);
+			case ASPEN:      return new ItemStack(BlockSetup.sapling,0,1);
+			case BIRCH:      return new ItemStack(BlockSetup.sapling,0,2);
+			case CHESTNUT:   return new ItemStack(BlockSetup.sapling,0,3);
+			case DOUGLASFIR: return new ItemStack(BlockSetup.sapling,0,4);
+			case HICKORY:    return new ItemStack(BlockSetup.sapling,0,5);
+			case MAPLE:      return new ItemStack(BlockSetup.sapling,0,6);
+			case ASH:        return new ItemStack(BlockSetup.sapling,0,7);
+			case PINE:       return new ItemStack(BlockSetup.sapling,0,8);
+			case REDWOOD:    return new ItemStack(BlockSetup.sapling,0,9);
+			case SPRUCE:     return new ItemStack(BlockSetup.sapling,0,10);
+			case SYCAMORE:   return new ItemStack(BlockSetup.sapling,0,11);
+			case WHITECEDAR: return new ItemStack(BlockSetup.sapling,0,12);
+			case WHITEELM:   return new ItemStack(BlockSetup.sapling,0,13);
+			case WILLOW:     return new ItemStack(BlockSetup.sapling,0,14);
+			case KAPOK:      return new ItemStack(BlockSetup.sapling,0,15);
+			case KOA:
+			case UTACACIA:   return new ItemStack(BlockSetup.sapling2,0,0);
+		}
+		return null;
 	}
 }
