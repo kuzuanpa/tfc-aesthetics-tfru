@@ -150,7 +150,9 @@ public class AthsWorldGenPlants implements IWorldGenerator {
 			}
 		}
 	}
-
+	public static final short EXPAND_LIMIT = 127;
+	public short expandCount=0;
+	public long lastTick=0;
 	public void expandClusterOrganic(Random random, Block plant, PlantSpawnData data, World world, int x, int z,
 			BitMap bmp) {
 		int numPlants = AthsMath.binoRNG(random, data.size - 1, 2) + 1; // matlab moment (dies from cringe)
@@ -161,10 +163,12 @@ public class AthsWorldGenPlants implements IWorldGenerator {
 		int y = getTopSolidOrLiquidBlock(world, x, z);
 		Point3D origin = new Point3D(x, y, z);
 		pointList.add(origin); // add the origin plant
-		int n; // how many plants back should be considered as possible seeds for cluster
-				// growth
-
-		while (plantCount < numPlants) {
+		int n; // how many plants back should be considered as possible seeds for cluster growth
+		if(lastTick < world.getTotalWorldTime()){
+			expandCount=0;
+			lastTick=world.getTotalWorldTime();
+		}
+		while (true) {
 			n = (int) (Math.sqrt(pointList.size()) * CIRCULARITY);
 			n = Math.min(n, pointList.size()); // avoid index out of bounds
 
@@ -175,9 +179,11 @@ public class AthsWorldGenPlants implements IWorldGenerator {
 
 			boolean hasPlaced = false;
 
-			while (recentIndexes.size() > 0 && !hasPlaced) {
+			while (!recentIndexes.isEmpty() && !hasPlaced) {
 				int seedIndex = recentIndexes.remove(random.nextInt(recentIndexes.size()));
 				Point3D seed = pointList.get(seedIndex);
+				expandCount+=1;
+				if(expandCount>=EXPAND_LIMIT)return;
 				Point3D newPoint3D = getNearestTo(getNeighbors(seed, world), origin, plant, data, world, random, bmp);
 
 				if (newPoint3D != null) {
