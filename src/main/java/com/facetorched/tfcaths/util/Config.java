@@ -77,7 +77,7 @@ public class Config {
 		propagationRecipes = config.getBoolean("propagationRecipes", "_propagation_recipes", true, "Set to false to prevent plants from being growable in a barrel");
 		miscRecipes = config.getBoolean("miscRecipes", "_misc_recipes", true, "Set to false to prevent addition of various TFC+ styled plant-based recipes");
 		
-		rarityTree = config.getFloat("rarityTree", "_rarity_tree", 4f, 0f, 10000f, "The multiplier applied to tree-like plant rarity. Set to 0 to disable these from spawning entirely");
+		rarityTree = config.getFloat("rarityTree", "_rarity_tree", 0f, 0f, 10000f, "The multiplier applied to tree-like plant rarity. Set to 0 to disable these from spawning entirely");
 		rarityLilyPad = config.getFloat("rarityLilyPad", "_rarity_lily_pad", 10f, 0f, 10000f, "The multiplier applied to lilypad-like plant rarity (including algae). Set to 0 to disable these from spawning entirely");
 		rarityEpiphyte = config.getFloat("rarityEpiphyte", "_rarity_epiphyte", 10f, 0f, 10000f, "The multiplier applied to epiphyte plant rarity. Set to 0 to disable these from spawning entirely");
 		rarityCactus = config.getFloat("rarityCactus", "_rarity_cactus", 10f, 0f, 10000f, "The multiplier applied to cactus rarity. Set to 0 to disable these from spawning entirely");
