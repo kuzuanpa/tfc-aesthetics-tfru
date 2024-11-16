@@ -456,8 +456,8 @@ public class AthsGlobal {
 	public static final String LIVERWORT_EPIPHYTE = "Liverwort_Epiphyte";
 
 	
-	public static final String[] SHALLOW_WATER_BIOMES = new String[]{"River","Beach","Gravel Beach","Swamp","Lake","Shore","Salt Swamp","Lakeshore","Riverbank","Estuary"};
-	public static final String[] LAND_BIOMES = new String[] {"All","!Ocean","!Hell","!Deep Ocean"};
+	public static final String[] SHALLOW_WATER_BIOMES = new String[]{"TFC River","TFC Beach","TFC Gravel Beach","TFC Swamp","TFC Lake","TFC Shore","TFC Salt Swamp","TFC Lakeshore","TFC Riverbank","TFC Estuary"};
+	public static final String[] LAND_BIOMES = new String[] {"All","!TFC Ocean","!TFC Hell","!TFC Deep Ocean"};
 	public static final String[] ALL_BIOMES = AthsParser.getBiomes();
 	
 	public static final String[] ROCKTYPES = new String[] {"IgEx","IgIn","Sed","MM"};
