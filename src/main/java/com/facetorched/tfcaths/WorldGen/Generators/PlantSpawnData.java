@@ -59,7 +59,7 @@ public class PlantSpawnData {
 		for(String biome : biomes) {
 			if(biome.startsWith("!")) {
 				if(!this.biomes.remove(TFCBiome.getBiomeByName(biome.substring(1))))
-					throw new NoSuchElementException();
+					throw new NoSuchElementException("Biome "+biome+" Does not Exist!");
 			}
 		}
 		
