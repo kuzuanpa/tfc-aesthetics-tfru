@@ -11,7 +11,6 @@ import com.facetorched.tfcaths.util.ObjPart;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
@@ -26,10 +25,7 @@ public class BlockPlant3d extends BlockPlant{
 	public boolean isConstantSize = false;
 	
 	public BlockPlant3d() {
-		this(Material.plants);
-	}
-	public BlockPlant3d(Material m) {
-		super(m);
+		super();
 		setGrassBounds();
 		this.renderId = AthsBlockSetup.plant3dRenderID;
 	}
@@ -47,17 +43,12 @@ public class BlockPlant3d extends BlockPlant{
 				modelObjs[i] = (WavefrontObject)AdvancedModelLoader.loadModel(new ResourceLocation(AthsMod.MODID + ":models/blocks/plants/" + overrideModelName + ".obj"));
 			}
 		}
-		try {
+		
 		for(int i = 0; i < plantNames.length; i++) {
-			if (this.hasMeta(i)) {
-				for(ObjPart objPart : modelParts.get(i)) {
-					objPart.setIcon(register.registerIcon(objPart.getTexture()));
-				}
+			for(ObjPart objPart : modelParts.get(i)) {
+				objPart.setIcon(register.registerIcon(objPart.getTexture()));
 			}
 		}
-		}
-		catch (Exception e) {
-		      System.out.println(plantNames);}
 	}
 	
 	@Override

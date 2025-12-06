@@ -22,10 +22,10 @@ public class PlantSpawnData {
 	public ArrayList<String> canGrowOnOreDict = new ArrayList<String>();
 	public ArrayList<BlockMetaPair> canGrowOnBlockMeta = new ArrayList<BlockMetaPair>();
 	public ArrayList<TFCBiome> biomes = new ArrayList<TFCBiome>();
-	public int size, dispersion, rarity, minAltitude, maxAltitude, minLatitude, maxLatitude;
+	public int size, dispersion, rarity, minAltitude, maxAltitude;
 	public float minTemp, maxTemp, minRainfall, maxRainfall, minEVT, maxEVT, forestGen;
 
-	public PlantSpawnData(String blockName, int[] metas, String[] canGrowOn, String[] biomes, String[] region, int size, int dispersion, int rarity, int minAltitude, int maxAltitude, int minLatitude, int maxLatitude,
+	public PlantSpawnData(String blockName, int[] metas, String[] canGrowOn, String[] biomes, String[] region, int size, int dispersion, int rarity, int minAltitude, int maxAltitude,
 			float minTemp, float maxTemp, float minRainfall, float maxRainfall, float minEVT, float maxEVT, float forestGen){
 		block = AthsParser.getBlockFromName(blockName);
 		this.metas = metas;
@@ -75,8 +75,6 @@ public class PlantSpawnData {
 		this.rarity = rarity;
 		this.minAltitude = minAltitude;
 		this.maxAltitude = maxAltitude;
-		this.minLatitude = minLatitude;
-		this.maxLatitude = maxLatitude;
 		this.minTemp = minTemp;
 		this.maxTemp = maxTemp;
 		this.minRainfall = minRainfall;
@@ -97,10 +95,7 @@ public class PlantSpawnData {
 	public boolean canGrowAltitude(int blockY) {
 		return blockY >= minAltitude && blockY <= maxAltitude;
 	}
-	public boolean canGrowLatitude(int blockZ) {
-		return blockZ >= minLatitude && blockZ <= maxLatitude;
-	}
-
+	
 	public boolean canGrowOnBlock(Block block, int meta) {
 		if(canGrowOn.contains(block)) {
 			return true;

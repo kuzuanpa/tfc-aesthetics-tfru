@@ -32,9 +32,6 @@ public class RenderPlant3d extends AbstractRenderPlant {
 			return;
 		}
 		BlockPlant3d block3d = (BlockPlant3d) block;
-		if (!(block3d.hasMeta(meta))) {
-			return;
-		}
 		WavefrontObject model = block3d.getModelObj(meta);
 		Tessellator tessellator = Tessellator.instance;
 		
@@ -107,8 +104,6 @@ public class RenderPlant3d extends AbstractRenderPlant {
 
 	public static void renderWithOBJ(WavefrontObject model, ArrayList<ObjPart> objParts, Tessellator tes, float scale,
 			float rotation) {
-		if (objParts == null)
-			return;
 		float cos = (float) Math.cos(rotation);
 		float sin = (float) Math.sin(rotation);
 		float x, z; // positions used for rotation

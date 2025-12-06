@@ -21,7 +21,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class AthsMod
 {
     public static final String MODID = "tfcaths";
-    public static final String VERSION = "1.8.1"; // change in build.gradle as well
+    public static final String VERSION = "1.7.0"; // change in build.gradle as well
     public static final String NAME = "TFC Aesthetics";
     
     @SidedProxy(
@@ -49,7 +49,6 @@ public class AthsMod
     public void init(FMLInitializationEvent event) //build data structures and register network handlers
     {
     	Config.reloadPlants();
-      	Config.reloadPlants2();
     	Config.reloadCrystals();
     	
     	AthsRecipes.registerRecipes();

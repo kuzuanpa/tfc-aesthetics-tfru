@@ -8,8 +8,7 @@ public enum EnumVary {
 	SNOW (3, "_Snow"),
 	FLOWER (4, "_Flower"),
 	EARLY_SPRING (5, "_Early_Spring"),
-	FRUIT (6, "_Fruit"),
-	MYCELIUM (7, "_Mycelium");
+	FRUIT (6, "_Fruit");
 	
 	
 	public final String suffix;
