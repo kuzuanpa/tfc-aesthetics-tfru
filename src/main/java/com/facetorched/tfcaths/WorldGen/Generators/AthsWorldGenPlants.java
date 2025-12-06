@@ -83,9 +83,11 @@ public class AthsWorldGenPlants implements IWorldGenerator {
 		
 		if (TFC_Climate.getCacheManager(world) == null) {
 			AthsLogger.error("null cache manager");
+			return;
 		}
 		else if(TFC_Climate.getCacheManager(world).getEVTLayerAt(centerX, centerZ) == null) {
 			AthsLogger.error("null data layer");
+			return;
 		}
 		
 		float evt = TFC_Climate.getCacheManager(world).getEVTLayerAt(centerX, centerZ).floatdata1;
@@ -237,7 +239,7 @@ public class AthsWorldGenPlants implements IWorldGenerator {
 	}
 
 	public boolean canPlacePlantAt(Block plant, PlantSpawnData data, World world, int x, int y, int z) {
-		if (plant.canPlaceBlockAt(world, x, y, z) && data.canGrowAltitude(y)) { // we check altitude later here since cliffs were an issue
+		if (plant.canPlaceBlockAt(world, x, y, z) && data.canGrowAltitude(y) && data.canGrowLatitude(z)) { // we check altitude later here since cliffs were an issue. Also now checking latitude here
 			if (plant instanceof BlockPlant) {
 				return ((BlockPlant) plant).shouldGenerateAt(world, x, y, z);
 			} else

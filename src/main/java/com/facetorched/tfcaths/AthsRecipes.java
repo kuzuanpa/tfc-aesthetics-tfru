@@ -23,7 +23,8 @@ public class AthsRecipes {
 		boolean enabledMushroomFoodRecipe = Config.mushroomRecipes;
 		if(Config.mushroomRecipes) {//Disabled in TFRU
 			for(BlockPlant b : AthsParser.getAthsPlants(IFungus.class)) {
-				addFoodRefineRecipe(b, b.getFoodItemStack());
+				if (b.getFoodItemStack() != null)
+					addFoodRefineRecipe(b, b.getFoodItemStack());
 			}
 		}
 		if(Config.miscRecipes) {//Disabled in TFRU
