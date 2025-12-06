@@ -83,9 +83,11 @@ public class AthsWorldGenPlants implements IWorldGenerator {
 		
 		if (TFC_Climate.getCacheManager(world) == null) {
 			AthsLogger.error("null cache manager");
+			return;
 		}
 		else if(TFC_Climate.getCacheManager(world).getEVTLayerAt(centerX, centerZ) == null) {
 			AthsLogger.error("null data layer");
+			return;
 		}
 		
 		float evt = TFC_Climate.getCacheManager(world).getEVTLayerAt(centerX, centerZ).floatdata1;
