@@ -37,7 +37,7 @@ repositories {
 }
 apply plugin: 'forge'
 
-version = "1.7.0"
+version = "1.8.2"
 group= "com.facetorched.tfcaths" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "TFCAesthetics-TFRU"
 

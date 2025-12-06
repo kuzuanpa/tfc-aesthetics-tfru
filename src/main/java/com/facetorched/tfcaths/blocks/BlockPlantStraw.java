@@ -3,6 +3,7 @@ package com.facetorched.tfcaths.blocks;
 import com.bioxx.tfc.Blocks.Vanilla.BlockCustomTallGrass;
 import com.bioxx.tfc.ItemSetup;
 import com.bioxx.tfc.api.TFCItems;
+import com.facetorched.tfcaths.interfaces.IStraw;
 import com.facetorched.tfcaths.util.AthsParser;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,7 +16,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class BlockPlantStraw extends BlockPlant implements IShearable{
+public class BlockPlantStraw extends BlockPlant implements IShearable, IStraw{
 	public BlockPlantStraw() {
 		super(Material.vine);
 		setGrassBounds();
@@ -51,10 +52,10 @@ public class BlockPlantStraw extends BlockPlant implements IShearable{
 				//Now check each block around the destroyed block for AOE directions
 				for (int r = -1; r < 2; r++){
 					for (int c = -1; c < 2; c++){
-						if (world.getBlock(r + x, y, c + z) instanceof BlockPlantStraw){
-							BlockPlantStraw b = (BlockPlantStraw)world.getBlock(r + x, y, c + z);
+						if (world.getBlock(r + x, y, c + z) instanceof IStraw){
+							IStraw straw = (IStraw)world.getBlock(r + x, y, c + z);
 							int bMeta = world.getBlockMetadata(r + x, y, c + z);
-							dropItemStacks(world, r + x, y, c + z, new ItemStack(ItemSetup.straw), 1, b.getMaxStraw(bMeta), new Random());
+							dropItemStacks(world, r + x, y, c + z, new ItemStack(ItemSetup.straw), 1, straw.getMaxStraw(bMeta), new Random());
 							AthsParser.damageItem(player, is);
 							world.setBlockToAir(r + x, y, c + z);
 						}
